@@ -2,7 +2,7 @@ name: vulns
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
 jobs:
   vulns:
