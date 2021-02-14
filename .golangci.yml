@@ -1,0 +1,6 @@
+# This file contains all available configuration options
+# with their default values.
+# options for analysis running
+run:
+  # timeout for analysis, e.g. 30s, 5m, default is 1m
+  timeout: 3m
