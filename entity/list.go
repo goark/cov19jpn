@@ -17,10 +17,32 @@ type EntityList struct {
 
 //NewList function returns new EntityList instance.
 func NewList(list []*Entity) *EntityList {
+	if list == nil {
+		return &EntityList{[]*Entity{}}
+	}
 	return &EntityList{list}
 }
 
-//Size method returns size of list
+//Add method adds Entities in EntityList.
+func (el *EntityList) Add(e ...*Entity) {
+	if el == nil {
+		return
+	}
+	if el.list == nil {
+		el.list = []*Entity{}
+	}
+	el.list = append(el.list, e...)
+}
+
+//Entities returns list of Entity.
+func (el *EntityList) Entities() []*Entity {
+	if el == nil {
+		return []*Entity{}
+	}
+	return el.list
+}
+
+//Size method returns size of list.
 func (el *EntityList) Size() int {
 	if el == nil {
 		return 0
@@ -28,7 +50,7 @@ func (el *EntityList) Size() int {
 	return len(el.list)
 }
 
-//Entity method return Entity in list.
+//Entity method return Entity in EntityList.
 func (el *EntityList) Entity(i int) *Entity {
 	if el == nil {
 		return nil

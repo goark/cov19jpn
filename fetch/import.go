@@ -11,7 +11,7 @@ import (
 
 //Import function returns slice of entity.Entity
 func Import(r io.Reader, f *filter.Filter) ([]*entity.Entity, error) {
-	es := []*entity.Entity{}
+	list := entity.NewList(nil)
 	cr := csvdata.New(r, entity.CSVCols, true)
 	for {
 		elms, err := cr.Next()
@@ -26,10 +26,10 @@ func Import(r io.Reader, f *filter.Filter) ([]*entity.Entity, error) {
 			return nil, errs.Wrap(err)
 		}
 		if f.Match(e.TargetPredictionDate, e.JapanPrefectureCode) {
-			es = append(es, e)
+			list.Add(e)
 		}
 	}
-	return es, nil
+	return list.Entities(), nil
 }
 
 /* Copyright 2021 Spiegel

@@ -8,7 +8,7 @@
 ## Download and Build
 
 ```
-$ go install github.com/spiegel-im-spiegel/cov19jpn@latest
+$ go get github.com/spiegel-im-spiegel/cov19jpn@latest
 ```
 
 ## Binaries
