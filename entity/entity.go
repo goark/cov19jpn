@@ -41,7 +41,7 @@ type Entity struct {
 	NewConfirmed                    *json.Number     `json:"new_confirmed,omitempty"`
 	NewDeathsGroundTruth            *json.Number     `json:"new_deaths_ground_truth,omitempty"`
 	NewConfirmedGroundTruth         *json.Number     `json:"new_confirmed_ground_truth,omitempty"`
-	PrefectureNameKanji             string           `json:"prefecture_name_kanji,omitempty"`
+	PrefectureNameKanji             string           `json:"prefecture_name_kanji"`
 }
 
 func Decode(elements []string) (*Entity, error) {

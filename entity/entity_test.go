@@ -102,7 +102,7 @@ func TestEntity(t *testing.T) {
 
 	for _, tc := range testCases {
 		r := csvdata.New(strings.NewReader(tc.input), CSVCols, true)
-		es := []*Entity{}
+		list := NewList(nil)
 		for {
 			elms, err := r.Next()
 			if err != nil {
@@ -113,9 +113,9 @@ func TestEntity(t *testing.T) {
 				t.Errorf("Decode() is \"%v\", want nil.", err)
 				continue
 			}
-			es = append(es, e)
+			list.Add(e)
 		}
-		list0 := NewList(es)
+		list0 := NewList(list.Entities())
 		list0.Sort()
 		list1 := list0.Filer(filter.New().SetPeriod(date.NewPeriod(list0.StartDayMeasure(), list0.EndDayMeasure())))
 		b := list1.EncodeCSV()
