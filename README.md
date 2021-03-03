@@ -5,10 +5,12 @@
 [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/spiegel-im-spiegel/cov19jpn/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/spiegel-im-spiegel/cov19jpn.svg)](https://github.com/spiegel-im-spiegel/cov19jpn/releases/latest)
 
+This package is required Go 1.16 or later.
+
 ## Download and Build
 
 ```
-$ go get github.com/spiegel-im-spiegel/cov19jpn@latest
+$ go install github.com/spiegel-im-spiegel/cov19jpn@latest
 ```
 
 ## Binaries

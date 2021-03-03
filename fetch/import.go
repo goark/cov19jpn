@@ -3,25 +3,24 @@ package fetch
 import (
 	"io"
 
-	"github.com/spiegel-im-spiegel/cov19jpn/csvdata"
 	"github.com/spiegel-im-spiegel/cov19jpn/entity"
 	"github.com/spiegel-im-spiegel/cov19jpn/filter"
+	"github.com/spiegel-im-spiegel/csvdata"
 	"github.com/spiegel-im-spiegel/errs"
 )
 
 //Import function returns slice of entity.Entity
 func Import(r io.Reader, f *filter.Filter) ([]*entity.Entity, error) {
 	list := entity.NewList(nil)
-	cr := csvdata.New(r, entity.CSVCols, true)
+	cr := csvdata.New(r, true).WithFieldsPerRecord(entity.CSVCols)
 	for {
-		elms, err := cr.Next()
-		if err != nil {
+		if err := cr.Next(); err != nil {
 			if errs.Is(err, io.EOF) {
 				break
 			}
 			return nil, errs.Wrap(err)
 		}
-		e, err := entity.Decode(elms)
+		e, err := entity.Decode(cr.Row())
 		if err != nil {
 			return nil, errs.Wrap(err)
 		}

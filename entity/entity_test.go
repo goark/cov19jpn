@@ -6,10 +6,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/spiegel-im-spiegel/cov19jpn/csvdata"
 	"github.com/spiegel-im-spiegel/cov19jpn/ecode"
 	"github.com/spiegel-im-spiegel/cov19jpn/filter"
 	"github.com/spiegel-im-spiegel/cov19jpn/values/date"
+	"github.com/spiegel-im-spiegel/csvdata"
 )
 
 const (
@@ -101,14 +101,13 @@ func TestEntity(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		r := csvdata.New(strings.NewReader(tc.input), CSVCols, true)
+		r := csvdata.New(strings.NewReader(tc.input), true).WithFieldsPerRecord(CSVCols)
 		list := NewList(nil)
 		for {
-			elms, err := r.Next()
-			if err != nil {
+			if err := r.Next(); err != nil {
 				break
 			}
-			e, err := Decode(elms)
+			e, err := Decode(r.Row())
 			if errors.Is(err, ecode.ErrInvalidRecord) {
 				t.Errorf("Decode() is \"%v\", want nil.", err)
 				continue
