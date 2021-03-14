@@ -10,9 +10,10 @@ import (
 
 //HistData class
 type HistData struct {
-	Period date.Period
-	Cases  float64
-	Deaths float64
+	Period       date.Period
+	Cases        float64
+	Deaths       float64
+	Hospitalized float64
 }
 
 //HistList class is list of HistData
@@ -77,6 +78,7 @@ func (hl *HistList) addData(e *entity.Entity) {
 		if h.Period.Contains(e.TargetPredictionDate) {
 			h.Cases += jsonNUmberToFloat64(e.NewConfirmedValue())
 			h.Deaths += jsonNUmberToFloat64(e.NewDeathsValue())
+			h.Hospitalized = max(h.Hospitalized, jsonNUmberToFloat64(e.HospitalizedPatientsValue()))
 		}
 	}
 }

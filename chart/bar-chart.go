@@ -5,6 +5,7 @@ import (
 
 	"github.com/spiegel-im-spiegel/errs"
 	"gonum.org/v1/plot"
+	"gonum.org/v1/plot/font"
 	"gonum.org/v1/plot/plotter"
 	"gonum.org/v1/plot/plotutil"
 	"gonum.org/v1/plot/vg"
@@ -15,27 +16,30 @@ func MakeHistChart(list *HistList, title, outPath string) error {
 	labelX := []string{}
 	dataY1 := plotter.Values{}
 	dataY2 := plotter.Values{}
+	// dataY3 := plotter.XYs{}
 	maxCases := 0.0
 	for i := 0; i < list.Size(); i++ {
 		d := list.Data(i)
 		labelX = append(labelX, d.Period.StringEnd())
-		dataY1 = append(dataY1, d.Cases)
-		dataY2 = append(dataY2, d.Deaths)
+		dataY1 = append(dataY1, math.Floor(d.Cases))
 		maxCases = max(maxCases, d.Cases)
+		dataY2 = append(dataY2, math.Floor(d.Deaths))
 		maxCases = max(maxCases, d.Deaths)
+		// dataY3 = append(dataY3, plotter.XY{X: (float64)(i), Y: math.Floor(d.Hospitalized)})
+		// maxCases = max(maxCases, d.Hospitalized)
 	}
-	maxCases = maxCases * 4 / 3
+	maxCases = maxCases * 5 / 3
 	maxCases = (float64)((((int)(maxCases) / 50) + 1) * 50)
 
 	//default font
-	plot.DefaultFont = "Helvetica"
-	plotter.DefaultFont = "Helvetica"
+	plot.DefaultFont = font.Font{
+		Typeface: "Liberation",
+		Variant:  "Sans",
+	}
+	plotter.DefaultFont = plot.DefaultFont
 
 	//new plot
-	p, err := plot.New()
-	if err != nil {
-		return errs.Wrap(err, errs.WithContext("outPath", outPath))
-	}
+	p := plot.New()
 
 	//new bar chart
 	bar1, err := plotter.NewBarChart(dataY1, vg.Points(10))
@@ -59,6 +63,15 @@ func MakeHistChart(list *HistList, title, outPath string) error {
 	bar2.Horizontal = false
 	p.Add(bar2)
 
+	// //new line chart
+	// line1, err := plotter.NewLine(dataY3)
+	// if err != nil {
+	// 	return errs.Wrap(err, errs.WithContext("outPath", outPath))
+	// }
+
+	// line1.Color = plotutil.Color(4)
+	// p.Add(line1)
+
 	//labels of X
 	p.NominalX(labelX...)
 	p.X.Label.Text = "Date of report"
@@ -71,11 +84,12 @@ func MakeHistChart(list *HistList, title, outPath string) error {
 	p.Y.Label.Text = "Confirmed cases"
 	p.Y.Padding = 5
 	p.Y.Min = 0
-	p.Y.Max = maxCases
+	p.Y.Max = math.Ceil(maxCases)
 
 	//legend
 	p.Legend.Add("New Cases", bar1)
 	p.Legend.Add("New Deaths", bar2)
+	// p.Legend.Add("Hospitalized", line1)
 	p.Legend.Top = true  //top
 	p.Legend.Left = true //left
 	p.Legend.XOffs = 0
