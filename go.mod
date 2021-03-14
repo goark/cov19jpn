@@ -8,5 +8,5 @@ require (
 	github.com/spiegel-im-spiegel/errs v1.0.2
 	github.com/spiegel-im-spiegel/fetch v0.2.3
 	github.com/spiegel-im-spiegel/gocli v0.10.4
-	gonum.org/v1/plot v0.8.1
+	gonum.org/v1/plot v0.9.0
 )
