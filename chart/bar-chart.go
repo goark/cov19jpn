@@ -16,7 +16,7 @@ func MakeHistChart(list *HistList, title, outPath string) error {
 	labelX := []string{}
 	dataY1 := plotter.Values{}
 	dataY2 := plotter.Values{}
-	// dataY3 := plotter.XYs{}
+	dataY3 := plotter.XYs{}
 	maxCases := 0.0
 	for i := 0; i < list.Size(); i++ {
 		d := list.Data(i)
@@ -25,8 +25,8 @@ func MakeHistChart(list *HistList, title, outPath string) error {
 		maxCases = max(maxCases, d.Cases)
 		dataY2 = append(dataY2, math.Floor(d.Deaths))
 		maxCases = max(maxCases, d.Deaths)
-		// dataY3 = append(dataY3, plotter.XY{X: (float64)(i), Y: math.Floor(d.Hospitalized)})
-		// maxCases = max(maxCases, d.Hospitalized)
+		dataY3 = append(dataY3, plotter.XY{X: (float64)(i), Y: math.Floor(d.Hospitalized)})
+		maxCases = max(maxCases, d.Hospitalized)
 	}
 	maxCases = maxCases * 5 / 3
 	maxCases = (float64)((((int)(maxCases) / 50) + 1) * 50)
@@ -63,14 +63,14 @@ func MakeHistChart(list *HistList, title, outPath string) error {
 	bar2.Horizontal = false
 	p.Add(bar2)
 
-	// //new line chart
-	// line1, err := plotter.NewLine(dataY3)
-	// if err != nil {
-	// 	return errs.Wrap(err, errs.WithContext("outPath", outPath))
-	// }
+	//new line chart
+	line1, err := plotter.NewLine(dataY3)
+	if err != nil {
+		return errs.Wrap(err, errs.WithContext("outPath", outPath))
+	}
 
-	// line1.Color = plotutil.Color(4)
-	// p.Add(line1)
+	line1.Color = plotutil.Color(4)
+	p.Add(line1)
 
 	//labels of X
 	p.NominalX(labelX...)
@@ -89,7 +89,7 @@ func MakeHistChart(list *HistList, title, outPath string) error {
 	//legend
 	p.Legend.Add("New Cases", bar1)
 	p.Legend.Add("New Deaths", bar2)
-	// p.Legend.Add("Hospitalized", line1)
+	p.Legend.Add("Hospitalized", line1)
 	p.Legend.Top = true  //top
 	p.Legend.Left = true //left
 	p.Legend.XOffs = 0
