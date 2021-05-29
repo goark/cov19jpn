@@ -16,4 +16,5 @@
 
 # Other files and directories
 work/
+.task/
 *.bak
