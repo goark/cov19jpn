@@ -15,6 +15,7 @@ var (
 	defaultDateForm = "2006-01-02"
 	timeTemplate    = []string{
 		defaultDateForm,
+		"2006-01-02 15:04:05 MST",
 		time.RFC3339,
 	}
 	Zero = FromTime(time.Time{}) //Zero value of Date

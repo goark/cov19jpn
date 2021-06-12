@@ -45,7 +45,7 @@ type Entity struct {
 }
 
 func Decode(elements []string) (*Entity, error) {
-	if len(elements) != CSVCols {
+	if len(elements) < CSVCols {
 		return nil, errs.Wrap(ecode.ErrInvalidRecord)
 	}
 	return &Entity{

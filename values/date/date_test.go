@@ -17,6 +17,7 @@ func TestUnmarshal(t *testing.T) {
 		str string
 		jsn string
 	}{
+		{s: `{"date_taken": "2005-03-26 00:00:00 UTC"}`, str: "2005-03-26", jsn: `{"date_taken":"2005-03-26"}`},
 		{s: `{"date_taken": "2005-03-26T00:00:00+09:00"}`, str: "2005-03-26", jsn: `{"date_taken":"2005-03-26"}`},
 		{s: `{"date_taken": "2005-03-26"}`, str: "2005-03-26", jsn: `{"date_taken":"2005-03-26"}`},
 		{s: `{"date_taken": ""}`, str: "", jsn: `{"date_taken":""}`},
