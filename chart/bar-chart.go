@@ -58,7 +58,7 @@ func MakeHistChart(list *HistList, title, outPath string) error {
 	p.Add(bar1)
 
 	bar2.LineStyle.Width = vg.Length(0)
-	bar2.Color = plotutil.Color(6)
+	bar2.Color = plotutil.Color(7)
 	bar2.Offset = 2
 	bar2.Horizontal = false
 	p.Add(bar2)
@@ -69,7 +69,7 @@ func MakeHistChart(list *HistList, title, outPath string) error {
 		return errs.Wrap(err, errs.WithContext("outPath", outPath))
 	}
 
-	line1.Color = plotutil.Color(4)
+	line1.Color = plotutil.Color(3)
 	p.Add(line1)
 
 	//labels of X
