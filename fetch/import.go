@@ -12,8 +12,8 @@ import (
 //Import function returns slice of entity.Entity
 func Import(r io.Reader, f *filter.Filter) ([]*entity.Entity, error) {
 	list := entity.NewList(nil)
-	//cr := csvdata.New(r, true).WithFieldsPerRecord(entity.CSVCols)
-	cr := csvdata.New(r, true)
+	// cr := csvdata.NewRows(csvdata.New(r).WithFieldsPerRecord(entity.CSVCols), true)
+	cr := csvdata.NewRows(csvdata.New(r), true)
 	for {
 		if err := cr.Next(); err != nil {
 			if errs.Is(err, io.EOF) {
