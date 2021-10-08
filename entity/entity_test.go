@@ -101,7 +101,7 @@ func TestEntity(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		r := csvdata.New(strings.NewReader(tc.input), true).WithFieldsPerRecord(CSVCols)
+		r := csvdata.NewRows(csvdata.New(strings.NewReader(tc.input)).WithFieldsPerRecord(CSVCols), true)
 		list := NewList(nil)
 		for {
 			if err := r.Next(); err != nil {
