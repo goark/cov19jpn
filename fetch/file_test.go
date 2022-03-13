@@ -5,8 +5,8 @@ import (
 	"io"
 	"testing"
 
-	"github.com/spiegel-im-spiegel/cov19jpn/entity"
-	"github.com/spiegel-im-spiegel/cov19jpn/filter"
+	"github.com/goark/cov19jpn/entity"
+	"github.com/goark/cov19jpn/filter"
 )
 
 func TestFile(t *testing.T) {

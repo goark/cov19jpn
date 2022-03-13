@@ -3,7 +3,7 @@ package chart
 import (
 	"math"
 
-	"github.com/spiegel-im-spiegel/errs"
+	"github.com/goark/errs"
 	"gonum.org/v1/plot"
 	"gonum.org/v1/plot/font"
 	"gonum.org/v1/plot/plotter"

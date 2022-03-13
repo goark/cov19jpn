@@ -3,10 +3,10 @@ package entity
 import (
 	"encoding/json"
 
-	"github.com/spiegel-im-spiegel/cov19jpn/ecode"
-	"github.com/spiegel-im-spiegel/cov19jpn/values/date"
-	"github.com/spiegel-im-spiegel/cov19jpn/values/prefcodejpn"
-	"github.com/spiegel-im-spiegel/errs"
+	"github.com/goark/cov19jpn/ecode"
+	"github.com/goark/cov19jpn/values/date"
+	"github.com/goark/cov19jpn/values/prefcodejpn"
+	"github.com/goark/errs"
 )
 
 const (

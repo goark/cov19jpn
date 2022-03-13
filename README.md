@@ -1,21 +1,23 @@
 # [cov19jpn] -- COVID-2019 in Japan; Importing Google COVID-19 Public Forecasts
 
-[![check vulns](https://github.com/spiegel-im-spiegel/cov19jpn/workflows/vulns/badge.svg)](https://github.com/spiegel-im-spiegel/cov19jpn/actions)
-[![lint status](https://github.com/spiegel-im-spiegel/cov19jpn/workflows/lint/badge.svg)](https://github.com/spiegel-im-spiegel/cov19jpn/actions)
-[![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/spiegel-im-spiegel/cov19jpn/master/LICENSE)
-[![GitHub release](https://img.shields.io/github/release/spiegel-im-spiegel/cov19jpn.svg)](https://github.com/spiegel-im-spiegel/cov19jpn/releases/latest)
+[![check vulns](https://github.com/goark/cov19jpn/workflows/vulns/badge.svg)](https://github.com/goark/cov19jpn/actions)
+[![lint status](https://github.com/goark/cov19jpn/workflows/lint/badge.svg)](https://github.com/goark/cov19jpn/actions)
+[![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/goark/cov19jpn/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/goark/cov19jpn.svg)](https://github.com/goark/cov19jpn/releases/latest)
 
 This package is required Go 1.16 or later.
+
+**Migrated repository to [github.com/goark/cov19jpn][cov19jpn]**
 
 ## Download and Build
 
 ```
-$ go install github.com/spiegel-im-spiegel/cov19jpn@latest
+$ go install github.com/goark/cov19jpn@latest
 ```
 
 ## Binaries
 
-See [latest release](https://github.com/spiegel-im-spiegel/cov19jpn/releases/latest).
+See [latest release](https://github.com/goark/cov19jpn/releases/latest).
 
 ## Usage
 
@@ -146,4 +148,4 @@ $ cov19jpn plot shimane
 
 [![dependency.png](./dependency.png)](./dependency.png)
 
-[cov19jpn]: https://github.com/spiegel-im-spiegel/cov19jpn "spiegel-im-spiegel/cov19jpn: COVID-2019 in Japan; Importing Google COVID-19 Public Forecasts"
+[cov19jpn]: https://github.com/goark/cov19jpn "goark/cov19jpn: COVID-2019 in Japan; Importing Google COVID-19 Public Forecasts"

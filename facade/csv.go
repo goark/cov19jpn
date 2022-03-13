@@ -7,13 +7,13 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/goark/cov19jpn/entity"
+	"github.com/goark/cov19jpn/fetch"
+	"github.com/goark/cov19jpn/filter"
+	"github.com/goark/cov19jpn/values/prefcodejpn"
+	"github.com/goark/errs"
+	"github.com/goark/gocli/rwi"
 	"github.com/spf13/cobra"
-	"github.com/spiegel-im-spiegel/cov19jpn/entity"
-	"github.com/spiegel-im-spiegel/cov19jpn/fetch"
-	"github.com/spiegel-im-spiegel/cov19jpn/filter"
-	"github.com/spiegel-im-spiegel/cov19jpn/values/prefcodejpn"
-	"github.com/spiegel-im-spiegel/errs"
-	"github.com/spiegel-im-spiegel/gocli/rwi"
 )
 
 //newVersionCmd returns cobra.Command instance for show sub-command

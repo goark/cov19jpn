@@ -6,10 +6,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/spiegel-im-spiegel/cov19jpn/ecode"
-	"github.com/spiegel-im-spiegel/cov19jpn/filter"
-	"github.com/spiegel-im-spiegel/cov19jpn/values/date"
-	"github.com/spiegel-im-spiegel/csvdata"
+	"github.com/goark/cov19jpn/ecode"
+	"github.com/goark/cov19jpn/filter"
+	"github.com/goark/cov19jpn/values/date"
+	"github.com/goark/csvdata"
 )
 
 const (
