@@ -1,7 +1,7 @@
 project_name: cov19jpn
 release:
   github:
-    owner: spiegel-im-spiegel
+    owner: goark
     name: cov19jpn
 
 builds:
@@ -20,7 +20,7 @@ builds:
   main: ./
   flags:
   - -trimpath
-  ldflags: -s -w -X github.com/spiegel-im-spiegel/cov19jpn/facade.Version=v{{ .Version }}
+  ldflags: -s -w -X github.com/goark/cov19jpn/facade.Version=v{{ .Version }}
   binary: cov19jpn
 
 archives:

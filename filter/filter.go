@@ -1,8 +1,8 @@
 package filter
 
 import (
-	"github.com/spiegel-im-spiegel/cov19jpn/values/date"
-	"github.com/spiegel-im-spiegel/cov19jpn/values/prefcodejpn"
+	"github.com/goark/cov19jpn/values/date"
+	"github.com/goark/cov19jpn/values/prefcodejpn"
 )
 
 //Filter clsss is filtering conditions

@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"sort"
 
-	"github.com/spiegel-im-spiegel/cov19jpn/entity"
-	"github.com/spiegel-im-spiegel/cov19jpn/values/date"
+	"github.com/goark/cov19jpn/entity"
+	"github.com/goark/cov19jpn/values/date"
 )
 
 //HistData class

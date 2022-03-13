@@ -5,8 +5,8 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/spiegel-im-spiegel/errs"
-	fch "github.com/spiegel-im-spiegel/fetch"
+	"github.com/goark/errs"
+	fch "github.com/goark/fetch"
 )
 
 //NewWeb returns new Import instance

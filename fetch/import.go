@@ -3,10 +3,10 @@ package fetch
 import (
 	"io"
 
-	"github.com/spiegel-im-spiegel/cov19jpn/entity"
-	"github.com/spiegel-im-spiegel/cov19jpn/filter"
-	"github.com/spiegel-im-spiegel/csvdata"
-	"github.com/spiegel-im-spiegel/errs"
+	"github.com/goark/cov19jpn/entity"
+	"github.com/goark/cov19jpn/filter"
+	"github.com/goark/csvdata"
+	"github.com/goark/errs"
 )
 
 //Import function returns slice of entity.Entity

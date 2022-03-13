@@ -8,11 +8,11 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/spiegel-im-spiegel/cov19jpn/entity"
-	"github.com/spiegel-im-spiegel/cov19jpn/filter"
-	"github.com/spiegel-im-spiegel/cov19jpn/values/date"
-	"github.com/spiegel-im-spiegel/cov19jpn/values/prefcodejpn"
-	fch "github.com/spiegel-im-spiegel/fetch"
+	"github.com/goark/cov19jpn/entity"
+	"github.com/goark/cov19jpn/filter"
+	"github.com/goark/cov19jpn/values/date"
+	"github.com/goark/cov19jpn/values/prefcodejpn"
+	fch "github.com/goark/fetch"
 )
 
 type mockResp struct {

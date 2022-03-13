@@ -6,8 +6,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/spiegel-im-spiegel/cov19jpn/filter"
-	"github.com/spiegel-im-spiegel/cov19jpn/values/date"
+	"github.com/goark/cov19jpn/filter"
+	"github.com/goark/cov19jpn/values/date"
 )
 
 //EntityList class is list of Entities.
