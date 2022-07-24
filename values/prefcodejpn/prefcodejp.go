@@ -170,7 +170,7 @@ func (pc Code) NameUpper() string {
 }
 
 func (pc Code) Title() string {
-	return cases.Title(language.Und, cases.NoLower).String(pc.Name())
+	return cases.Title(language.Und).String(pc.Name())
 }
 
 //UnmarshalJSON method returns result of Unmarshal for json.Unmarshal().
